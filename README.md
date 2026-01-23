@@ -37,4 +37,20 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 
 
-Shadcn Ui -- 3.3.1 installed and using all its component installed using npx shadcn@3.3.1 add --all
+Step 1 Setup :
+--Environment : Node.js (min 18.18)
+--Setup Next.js app
+--Setup Shadcn/UI (3.3.1 and installed all component -- npx shadcn@3.3.1 add --all)
+--Create Github respository
+
+
+Step 2 Database & ORM 
+-- Setup Prisma ORM (Guide - https://www.prisma.io/docs/guides/nextjs?ref=codewithantonio   & https://www.prisma.io/docs/guides/nextjs)
+-- Setup Postgres database (Neon)
+-- Explore Prisma studio
+-- Test Prisma API
+
+-- Push to GitHub 
+   -- Create a new branch
+   -- Create a new PR
+   -- Review & merge
