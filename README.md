@@ -54,3 +54,15 @@ Step 2 Database & ORM
    -- Create a new branch
    -- Create a new PR
    -- Review & merge
+
+Step 3 tRPC Setup (Data access layer)
+-- Setup tRPC v11 (First - https://trpc.io/docs/client/tanstack-react-query/server-components )
+-- Create a procedure with Prisma API
+-- Explore tRPC client-side
+-- Explore tRPC server-side
+-- Explore tRPC server + client (prefetch)
+
+-- Push to Github
+  -- Create a new branch
+  -- Create a new PR 
+  -- Review & merge
