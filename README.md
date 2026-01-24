@@ -48,7 +48,7 @@ Step 2 Database & ORM
 -- Setup Prisma ORM (Guide - https://www.prisma.io/docs/guides/nextjs?ref=codewithantonio   & https://www.prisma.io/docs/guides/nextjs)
 -- Setup Postgres database (Neon)
 -- Explore Prisma studio
--- Test Prisma API
+-- Test Prisma API ( If you add new schema then you have use npx prisma generate for updating migration in vscode and for reset in db is npx prisma migrate reset and for saving new schema in db is npx prisma migrate dev )
 
 -- Push to GitHub 
    -- Create a new branch
@@ -141,6 +141,19 @@ Step 10 Payments
 -- Create Checkout
 -- Create billing portal
 -- Sandbox development testing (card - 4242 4242 4242 4242)
+
+-- Push to Github
+   -- Create a new branch
+   -- Create a new PR
+   -- Review & merge
+
+Step 11 Workflows CRUD
+-- Update Workflow schema
+-- Create Workflows API
+   -- Create
+   -- Read
+   -- Update
+   -- Delete
 
 -- Push to Github
    -- Create a new branch
