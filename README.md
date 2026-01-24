@@ -124,3 +124,14 @@ Step 8 Error tracking
    -- Create a new branch
    -- Create a new PR
    -- Review & merge
+
+Step 9 Sidebar layout
+-- Improve file structure
+-- Create placeholder routes
+-- Create sidebar layout
+
+-- Push to Github
+   -- Create a new branch
+   -- Create a new PR
+   -- Review & merge
+
