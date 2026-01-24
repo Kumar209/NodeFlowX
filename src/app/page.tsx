@@ -10,12 +10,17 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
 
 const Page =  ()=> {
-  // await requireAuth();
-  // const data = await caller.getUsers();
-
   const trpc = useTRPC();
   const queryClient = useQueryClient();
   const { data } = useQuery(trpc.getWorkflows.queryOptions());
+
+  const testAi = useMutation(trpc.testAi.mutationOptions(
+    {
+      onSuccess: () => {
+        toast.success("AI Job queued successfully");
+      }
+    }
+  ));
 
   const create = useMutation(trpc.createWorkflow.mutationOptions(
     {
@@ -31,7 +36,9 @@ const Page =  ()=> {
       <div>
         {JSON.stringify(data)}
       </div>
-      {/* <LogoutButton /> */}
+
+      <LogoutButton />
+      <Button disabled={testAi.isPending} onClick={() => testAi.mutate()}>Test AI</Button>
       <Button disabled={create.isPending} onClick={() => create.mutate()}>Create Workflow</Button>
     </div>
   );

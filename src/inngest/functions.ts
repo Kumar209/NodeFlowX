@@ -1,25 +1,51 @@
 import prisma from "@/lib/db";
 import { inngest } from "./client";
+import { generateText } from 'ai';
+import { createGoogleGenerativeAI } from "@ai-sdk/google";
+import { createOpenAI } from "@ai-sdk/openai";
+import { createAnthropic } from "@ai-sdk/anthropic";
 
-export const helloWorld = inngest.createFunction(
-  { id: "hello-world" },
-  { event: "test/hello.world" },
+const google = createGoogleGenerativeAI(
+//   {
+//   apiKey: process.env.GOOGLE_API_KEY!,
+// }
+);
+const openai = createOpenAI();
+const anthropic= createAnthropic();
+
+export const execute = inngest.createFunction(
+  { id: "execute-ai" },
+  { event: "execute/ai" },
   async ({ event, step }) => {
-    //Fetching video
-    await step.sleep("wait-a0moment", "5s");
+    await step.sleep("wait", "5s");
 
-    //Fetching transcription
-    await step.sleep("wait-a0moment", "5s");
+   const { steps : geminiSteps } = await step.ai.wrap("gemini-generate-text", 
+    generateText,  {
+      model: google('gemini-2.5-flash'),
+      system: "You are a helpful assistant.",
+      prompt: "what is 2+ 2?",
+    }
+   );
 
-    //Sending transcription to chatgpt
-    await step.sleep("wait-a0moment", "5s");
+  //  const { steps : openaiSteps } = await step.ai.wrap("openai-generate-text", 
+  //   generateText,  {
+  //     model: openai("gpt-4") as any,
+  //     system: "You are a helpful assistant.",
+  //     prompt: "what is 2+ 2?",
+  //   }
+  //  );
 
-    await step.run("create-workflow", () => {
-        return prisma.workflow.create({
-          data: {
-            name: "Workflow from inngest",
-          },
-        });
-    });
+  //  const { steps : anthropicSteps } = await step.ai.wrap("anthropic-generate-text", 
+  //   generateText, 
+  //   {
+  //     model: anthropic("claude-3-5-sonnet-20241022") as any,
+  //     system: "You are a helpful assistant.",
+  //     prompt: "what is 2+ 2?",
+  //   }
+  //  );
+
+  //  return { geminiSteps, openaiSteps, anthropicSteps };
+
+  return geminiSteps;
   },
 );

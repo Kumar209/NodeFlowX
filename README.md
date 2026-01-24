@@ -98,3 +98,17 @@ Step 6 Background Jobs
   -- Create a new branch
   -- Create a new PR
   -- Review & merge
+
+Step 7 AI providers
+-- Choose your AI model(s)
+   -- Gemini (Free) (Using) (API Key - https://ai.google.dev/api)
+   -- OpenAI (min. $5)
+   -- Anthropic (min. $5)
+
+-- Setup AI SDK (https://ai-sdk.dev/?ref=codewithantonio)
+-- Use AI SDK with Inngest
+
+-- Push to Github
+  -- Create a new branch
+  -- Creat a new PR
+  -- Review & merge
