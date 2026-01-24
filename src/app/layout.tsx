@@ -1,7 +1,26 @@
+/**
+ * Root Layout
+ *
+ * This file defines the global layout for the entire application.
+ * It loads global styles, fonts, providers, and UI utilities
+ * that should be available on every page.
+ *
+ * Purpose:
+ * - Apply global CSS and fonts
+ * - Wrap the app with tRPC provider (
+ *  Benefit:
+ * - Enables type-safe API calls everywhere in the app
+ * - Shares a single tRPC/React Query client
+ * - Avoids setting up tRPC context in every page or component
+ * )
+ * - Mount global UI components like toast notifications
+ */
+
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { TRPCReactProvider } from "@/trpc/client";
+import { Toaster } from "@/components/ui/sonner";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,7 +47,10 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <TRPCReactProvider>{children}</TRPCReactProvider>
+        <TRPCReactProvider>
+          {children}
+          <Toaster />
+        </TRPCReactProvider>
       </body>
     </html>
   );
