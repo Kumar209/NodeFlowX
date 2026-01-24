@@ -66,3 +66,15 @@ Step 3 tRPC Setup (Data access layer)
   -- Create a new branch
   -- Create a new PR 
   -- Review & merge
+
+
+Step 4 Authentication
+-- Setup BetterAuth (https://www.better-auth.com/?ref=codewithantonio)
+-- Add auth screens
+-- Add auth utils
+-- Add auth procedures (tRPC)
+
+-- Push to Github
+  -- Create a new branch
+  -- Create a new PR
+  -- Review & merge

@@ -1,3 +1,16 @@
+/**
+ * tRPC Client Provider
+ *
+ * This file sets up the client-side tRPC and React Query
+ * configuration for the app.
+ *
+ * It creates and provides the tRPC client so that React
+ * components can call backend procedures using hooks.
+ *
+ * Example:
+ *   const { data } = trpc.getUsers.useQuery();
+ */
+
 'use client';
 // ^-- to make sure we can mount the Provider from a server component
 import type { QueryClient } from '@tanstack/react-query';
