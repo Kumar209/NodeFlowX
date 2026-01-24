@@ -135,3 +135,14 @@ Step 9 Sidebar layout
    -- Create a new PR
    -- Review & merge
 
+Step 10 Payments
+-- Setup Polar
+-- Integrate with Better Auth
+-- Create Checkout
+-- Create billing portal
+-- Sandbox development testing (card - 4242 4242 4242 4242)
+
+-- Push to Github
+   -- Create a new branch
+   -- Create a new PR
+   -- Review & merge
