@@ -88,3 +88,13 @@ Step 5 Theme & styling (using tweakcn for shadcn)
   -- Create a new branch
   -- Create a new PR
   -- Review & merge
+
+Step 6 Background Jobs
+-- Setup Inngest
+-- Create a background Job
+-- Add mprocs (Used for development helper to run multiple cmd its not related to project) (https://github.com/pvolok/mprocs?ref=codewithantonio)
+
+-- Push to Github
+  -- Create a new branch
+  -- Create a new PR
+  -- Review & merge
