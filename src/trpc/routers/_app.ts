@@ -21,12 +21,23 @@ import { z } from 'zod';
 import { createTRPCRouter, protectedProcedure } from '../init';
 import prisma from '@/lib/db';
 import { inngest } from '@/inngest/client';
+import { google } from '@ai-sdk/google';
+import { generateText } from 'ai';
 
 export const appRouter = createTRPCRouter({
-  getWorkflows: protectedProcedure
-    .query(({ ctx }) => {
+
+  testAi: protectedProcedure.mutation(async () => {
+    await inngest.send({
+      name: "execute/ai"
+    });
+
+      return { success: true, message: "Gemini job initiated." };
+  }),
+
+  getWorkflows: protectedProcedure.query(({ ctx }) => {
       return prisma.workflow.findMany();
-    }),
+  }),
+
   createWorkflow: protectedProcedure.mutation(async () => {
     await inngest.send({
       name: "test/hello.world",  // this is event name mentioned in function of inngest
