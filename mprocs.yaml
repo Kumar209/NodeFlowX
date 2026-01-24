@@ -1,0 +1,17 @@
+procs:
+  next:
+    cmd: ["cmd", "/c", "npm", "run", "dev"]
+    autostart: true
+    autorestart: true
+    cwd: "."
+    
+  inngest:
+    cmd: ["cmd", "/c", "npm", "run", "inngest:dev"]
+    autostart: true
+    autorestart: true
+    cwd: "."
+
+  prisma:
+    cmd: ["cmd", "/c", "npm", "run", "prisma:studio"]
+    autostart: true
+    autorestart: true
