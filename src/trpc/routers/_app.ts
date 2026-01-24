@@ -1,53 +1,26 @@
 /**
- * tRPC App Router
+ * App tRPC Router
  *
- * This file defines the main tRPC router for the application.
- * All API procedures are registered here or composed from
- * smaller routers.
+ * This file defines the root tRPC router for the application.
+ * It combines all feature-level routers into a single API surface
+ * that is exposed to the client.
  *
- * It uses protected procedures to ensure only authenticated
- * users can access certain endpoints.
+ * Each feature (e.g. workflows) registers its own router here.
+ * Access control (public/protected procedures) is handled
+ * inside the individual routers.
  *
- * Example:
- * - trpc.getUsers.useQuery()
- *
- * Benefit:
- * - Type-safe backend APIs
- * - Centralized access control
+ * Benefits:
+ * - End-to-end type safety
+ * - Modular and scalable API structure
  * - Shared types between server and client
  */
 
-import { z } from 'zod';
-import { createTRPCRouter, premiumProcedure, protectedProcedure } from '../init';
-import prisma from '@/lib/db';
-import { inngest } from '@/inngest/client';
-import { google } from '@ai-sdk/google';
-import { generateText } from 'ai';
+import { createTRPCRouter} from '../init';
+import { workflowRouter } from '@/features/workflows/server/routers';
 
 export const appRouter = createTRPCRouter({
-
-  testAi: premiumProcedure.mutation(async () => {
-    await inngest.send({
-      name: "execute/ai"
-    });
-
-      return { success: true, message: "Gemini job initiated." };
-  }),
-
-  getWorkflows: protectedProcedure.query(({ ctx }) => {
-      return prisma.workflow.findMany();
-  }),
-
-  createWorkflow: protectedProcedure.mutation(async () => {
-    await inngest.send({
-      name: "test/hello.world",  // this is event name mentioned in function of inngest
-      data: {
-        email: "developer@gmail.com",
-      },
-    });
-
-    return { success: true, message: "Workflow job initiated." };
-  })
+  workflows: workflowRouter
+ 
 });
 // export type definition of API
 export type AppRouter = typeof appRouter;
