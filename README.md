@@ -78,3 +78,13 @@ Step 4 Authentication
   -- Create a new branch
   -- Create a new PR
   -- Review & merge
+
+Step 5 Theme & styling (using tweakcn for shadcn)
+-- Apply new theme (changed global.css & added logos from logoipsum)
+-- Improve auth screens
+-- Add logos
+
+-- Push to Github
+  -- Create a new branch
+  -- Create a new PR
+  -- Review & merge
