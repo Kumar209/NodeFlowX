@@ -4,6 +4,7 @@ import { generateText } from 'ai';
 import { createGoogleGenerativeAI } from "@ai-sdk/google";
 import { createOpenAI } from "@ai-sdk/openai";
 import { createAnthropic } from "@ai-sdk/anthropic";
+import * as Sentry from "@sentry/nextjs";
 
 const google = createGoogleGenerativeAI(
 //   {
@@ -19,11 +20,20 @@ export const execute = inngest.createFunction(
   async ({ event, step }) => {
     await step.sleep("wait", "5s");
 
+    Sentry.logger.info("User triggered AI execution", {log_source: 'sentry_test'});
+    console.warn("Something is missing");
+    console.error("This is an error i want to track");
+
    const { steps : geminiSteps } = await step.ai.wrap("gemini-generate-text", 
     generateText,  {
       model: google('gemini-2.5-flash'),
       system: "You are a helpful assistant.",
       prompt: "what is 2+ 2?",
+      experimental_telemetry:{
+        isEnabled:true,
+        recordInputs:true,
+        recordOutputs:true,
+      },
     }
    );
 

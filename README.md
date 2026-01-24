@@ -112,3 +112,15 @@ Step 7 AI providers
   -- Create a new branch
   -- Creat a new PR
   -- Review & merge
+
+Step 8 Error tracking
+-- Setup Sentry (free trail of 14 days and after that free plan developer mode)
+-- Demonstrate
+   -- Session replays
+   -- Logs
+   -- AI monitoring
+
+-- Push to Github
+   -- Create a new branch
+   -- Create a new PR
+   -- Review & merge
