@@ -16,9 +16,10 @@
  * - Easy to extend with OAuth providers later
  */
 
-import { betterAuth } from "better-auth";
+import { polar, checkout, portal, usage, webhooks } from "@polar-sh/better-auth";
+import { betterAuth, check } from "better-auth";
 import { prismaAdapter } from "better-auth/adapters/prisma";
-
+import { polarClient } from "./polar";
 import prisma from "@/lib/db";
 
 
@@ -30,4 +31,24 @@ export const auth = betterAuth({
     enabled: true,
     autoSignIn: true, // Automatically sign in users after they register (they don't have to login)
   },
+  plugins: [
+    polar({
+      client: polarClient,
+      createCustomerOnSignUp: true,
+      use: [
+        checkout({
+          products: [
+            {
+              productId: "ef964bfa-fdf8-48a8-aad2-cb68e6ea71b4",
+              slug: "pro",
+            }
+          ],
+          successUrl: process.env.POLAR_SUCCESS_URL,
+          authenticatedUsersOnly: true,
+        }),
+        
+        portal(),
+      ]
+    })
+  ]
 });
