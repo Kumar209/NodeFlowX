@@ -186,3 +186,19 @@ Step 13 Workflows UI (Used superjson package for handling error which caused by 
    -- Create a new branch
    -- Create a new PR
    -- Review & merge
+
+Step 14 Workflow page
+-- Load workflow page by ID
+   -- Prefetch
+   -- useSuspenseQuery
+   -- Loading
+   -- Error
+--Create "WorkflowHeader" component
+  -- Update workflow name
+--Create "Editor" component (not done in this git branch)
+  -- Add react-flow
+
+-- Push to Github
+   -- Create a new branch
+   -- Create a new PR
+   -- Review & merge
