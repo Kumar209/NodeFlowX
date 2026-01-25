@@ -159,3 +159,17 @@ Step 11 Workflows CRUD
    -- Create a new branch
    -- Create a new PR
    -- Review & merge
+
+Step 12 Workflows pagination
+-- Update "getMany" procedure
+-- Add NUQS for param handling
+   -- client side
+   -- server side
+-- Add "Entity" components
+-- Add UI for pagination
+-- Add UI for search
+
+-- Push to Github
+   -- Create a new branch
+   -- Create a new PR
+   -- Review & merge
