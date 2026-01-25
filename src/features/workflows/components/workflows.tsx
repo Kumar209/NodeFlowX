@@ -155,9 +155,8 @@ export const WorkflowItem = ({
           title={data.name}
           subtitle={
             <>
-            Update {formatDistanceToNow(data.updateAt, {addSuffix : true})}{" "}
-            $bull; Create{" "}
-            {formatDistanceToNow(data.createdAt, {addSuffix : true})}
+            Updated {formatDistanceToNow(data.updateAt, {addSuffix : true})}{" "}
+            - Created {formatDistanceToNow(data.createdAt, {addSuffix : true})}
             </>
           }
           image={
