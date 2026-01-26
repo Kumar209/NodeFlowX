@@ -228,3 +228,23 @@ Step 16 Node Selector
    -- Create a new branch
    -- Create a new PR
    -- Review & merge
+
+Step 17 
+-- CodeRabbit bugs:
+   -- Empty onClick handlers
+   -- Type casts
+-- Add save functionality
+-- Add delete functionality
+-- Add settings functionality
+(Node: Installed Jotai state management package/library for managing state of save workflow - created store and Installed statusIndicator package from reactflow it added a new file)
+(Example of http request node:
+   endpoint: https://codewithnodeflowx.com
+   requestbody: {
+      "userId" : "123"
+   }
+)
+
+-- Push to Github
+   -- Create a new branch
+   -- Create a new PR
+   -- Review & merge
