@@ -202,3 +202,18 @@ Step 14 Workflow page
    -- Create a new branch
    -- Create a new PR
    -- Review & merge
+
+Step 15 Editor
+-- Create "Editor" component
+   -- Add react-flow ( https://reactflow.dev/ )
+   -- Add initial nodes
+-- Update Schema
+   -- Add "Node" table
+   -- Add "Connection" table
+-- Load Default editor state 
+   (Note: for adding node registry we add place holder from custome nodes form react flow which added two files in component/react-flow folder. In placeholder node component we customize onClick so that it can trigger sidetoolbar for that node from outside)
+
+-- Push to Github
+   -- Create a new branch
+   -- Create a new PR
+   -- Review & merge
