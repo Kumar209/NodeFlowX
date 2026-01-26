@@ -217,3 +217,14 @@ Step 15 Editor
    -- Create a new branch
    -- Create a new PR
    -- Review & merge
+
+Step 16 Node Selector
+-- Add "manual trigger" node
+-- Add "http request" node
+-- Create node selector component
+(Note: added Base Handle for styling from react flow)
+
+-- Push to Github
+   -- Create a new branch
+   -- Create a new PR
+   -- Review & merge
