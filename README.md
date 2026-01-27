@@ -306,3 +306,14 @@ Step 20 Node templating (handlebars package)
    -- Create a new branch
    -- Create a new PR
    -- Review & merge
+
+Step 21 Node realtime (https://www.inngest.com/docs/features/realtime?ref=codewithantonio)
+-- Add "@inngest/realtime" (after installing , add realtime middleware to inngest client)
+-- Create "httpRequest" channel (status - "loading" | "success" | "error")
+-- Publish events (loading, error, success)
+-- Capture events "useNodeStatus"
+
+-- Push to Github
+   -- Create a new branch
+   -- Create a new PR
+   -- Review & merge
