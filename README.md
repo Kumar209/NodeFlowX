@@ -194,7 +194,7 @@ Step 14 Workflow page
    -- Loading
    -- Error
 --Create "WorkflowHeader" component
-  -- Update workflow name
+  -- Update workflow name (you can first go to any workflow and on top left there is workflow>{{workflowName}}  you can just click on the workflowName and change after changing it will automatically update the name)
 --Create "Editor" component (not done in this git branch)
   -- Add react-flow
 
@@ -277,6 +277,30 @@ Step 19 Node variables
 -- Fix key collision (suppose you have two http execution nodes connected A->B now both uses same post request to fetch data using ID 1 for A and 2 for B , now if we execute it both fetches data but in finalize step last http execution node B replaces data of execution node A due to key collision , we need to fetch both data at finalize)
    -- Add "variableName" to UI
    -- Use "variableName" in context
+
+-- Push to Github
+   -- Create a new branch
+   -- Create a new PR
+   -- Review & merge
+
+Step 20 Node templating (handlebars package)
+-- Refactor "variableName" in executor
+-- Implement templating syntax (Used to dynamically pass data from one node response to other node input)
+(Example: one http node calling api/todo/1 - it will fetch todo details and userId. Now i want to pass the userId from previous node to other node which calling api/user/{userId} to fetch userDetails ---- endpoint point url for 2nd node be like -- api/users/{{todo.httpResponse.data.userId}} same for dynamic body)
+   -- Allow dynamic body
+      (test: url: https://jsonplaceholder.typicode.com/todos, 
+             body: {
+               "title": "userId - {{todo.httpResponse.data.userId}}",
+               "body": "bar",
+               "userId": 1
+             }
+      )
+      (
+         test: to create identical todos you can pass only object with name of handlebars -- {{json todo.httpResponse.data}}
+      )
+
+   -- Allow dynamic endpoint
+      (test -- api/users/{{todo.httpResponse.data.userId}})
 
 -- Push to Github
    -- Create a new branch
