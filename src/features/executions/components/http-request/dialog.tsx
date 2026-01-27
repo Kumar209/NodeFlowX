@@ -95,7 +95,7 @@ export const HttpRequestDialog = ({
 
     return (
         <Dialog open={open} onOpenChange={onOpenChange} >
-            <DialogContent>
+            <DialogContent className="max-h-[85vh] flex flex-col">
                 <DialogHeader>
                     <DialogTitle>Http Request</DialogTitle>
                     <DialogDescription>
@@ -106,8 +106,19 @@ export const HttpRequestDialog = ({
                 <Form {...form}>
                     <form
                       onSubmit={form.handleSubmit(handleSubmit)}
-                      className="space-y-8 mt-4"
+                    className="space-y-8 mt-4 flex flex-col flex-1 overflow-hidden"
                     >
+                       <div 
+                            className="flex-1 overflow-y-auto pr-4 space-y-6
+                                        [&::-webkit-scrollbar]:w-1
+                                        [&::-webkit-scrollbar-track]:bg-transparent
+                                        [&::-webkit-scrollbar-thumb]:bg-border
+                                        [&::-webkit-scrollbar-thumb]:rounded-full
+                                        [&::-webkit-scrollbar-thumb:hover]:bg-muted-foreground/50
+                                        [scrollbar-width]:thin
+                                        [scrollbar-color]:hsl(var(--border)/0.3)_transparent"
+                        >
+                                            
                         <FormField
                           control={form.control}
                           name="variableName"
@@ -119,9 +130,10 @@ export const HttpRequestDialog = ({
                                     <Input 
                                       placeholder="myApiCall"
                                       {...field} 
+                                      className="ml-0.5 !important"
                                     />
                                 </FormControl>
-                                <FormDescription>
+                                <FormDescription className="ml-0.5">
                                     Use this name to reference the result in other nodes:{" "} {`{{${watchVariableName}.httpResponse.data}}`}
                                 </FormDescription>
                                 <FormMessage />
@@ -140,7 +152,7 @@ export const HttpRequestDialog = ({
                                   defaultValue={field.value}
                                 >
                                     <FormControl>
-                                        <SelectTrigger className="w-full">
+                                        <SelectTrigger className="w-full ml-0.5">
                                             <SelectValue placeholder="Select a method" />
                                         </SelectTrigger>
                                     </FormControl>
@@ -153,7 +165,7 @@ export const HttpRequestDialog = ({
                                         <SelectItem value="DELETE">DELETE</SelectItem>
                                     </SelectContent>
                                 </Select>
-                                <FormDescription>
+                                <FormDescription className="ml-0.5">
                                     The HTTP method to use for this request
                                 </FormDescription>
                                 <FormMessage />
@@ -172,9 +184,10 @@ export const HttpRequestDialog = ({
                                     <Input 
                                       placeholder="https://api.example.com/users/{{httpResponse.data.id}}"
                                       {...field} 
+                                      className="ml-0.5 !important"
                                     />
                                 </FormControl>
-                                <FormDescription>
+                                <FormDescription className="ml-0.5">
                                     Static URL or use {"{{variables}}"} for simple values or {"{{json variable}}"} to stringify objects
                                 </FormDescription>
                                 <FormMessage />
@@ -195,11 +208,11 @@ export const HttpRequestDialog = ({
                                                placeholder={
                                                 '{\n "userId": "{{httpResponse.data.id}}", \n "name": "{{httpResponse.data.name}}", \n "items": "{{httpResponse.data.items}}" \n}'
                                                }
-                                               className="min-h-[120px] font-mono text-sm"
+                                               className="min-h-[120px] font-mono text-sm ml-0.5"
                                                {...field}
                                             />
                                             </FormControl>
-                                            <FormDescription>
+                                            <FormDescription className="ml-0.5">
                                                 JSON with template variables. Use {"{{variables}}"} for simple values or {"{{json variable}}"} to stringify objects
                                             </FormDescription>
                                             <FormMessage />
@@ -208,6 +221,8 @@ export const HttpRequestDialog = ({
                                 />
                             )
                         }
+
+                        </div>
                         <DialogFooter className="mt-4">
                             <Button type="submit" >Save</Button>
                         </DialogFooter>
