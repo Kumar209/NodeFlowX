@@ -16,7 +16,11 @@
  * - Keeps heavy work out of request/response flow
  */
 
+import { realtimeMiddleware } from "@inngest/realtime/middleware";
 import { Inngest } from "inngest";
 
 // Create a client to send and receive events
-export const inngest = new Inngest({ id: "nodeflowx" });
+export const inngest = new Inngest({ 
+    id: "nodeflowx",
+    middleware: [ realtimeMiddleware() ]
+});
