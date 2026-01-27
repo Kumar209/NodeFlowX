@@ -268,3 +268,17 @@ Step 18 Node execution
    -- Create a new branch
    -- Create a new PR
    -- Review & merge
+
+Step 19 Node variables
+-- Fix codeRabbit issues 
+   -- Content-Type header
+   -- "Cyclic" error message
+
+-- Fix key collision (suppose you have two http execution nodes connected A->B now both uses same post request to fetch data using ID 1 for A and 2 for B , now if we execute it both fetches data but in finalize step last http execution node B replaces data of execution node A due to key collision , we need to fetch both data at finalize)
+   -- Add "variableName" to UI
+   -- Use "variableName" in context
+
+-- Push to Github
+   -- Create a new branch
+   -- Create a new PR
+   -- Review & merge
