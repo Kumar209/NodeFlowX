@@ -238,11 +238,31 @@ Step 17
 -- Add settings functionality
 (Node: Installed Jotai state management package/library for managing state of save workflow - created store and Installed statusIndicator package from reactflow it added a new file)
 (Example of http request node:
-   endpoint: https://codewithnodeflowx.com
+   endpoint: https://codewithnodeflowx.com or https://jsonplaceholder.typicode.com/todos/1
    requestbody: {
       "userId" : "123"
    }
 )
+
+-- Push to Github
+   -- Create a new branch
+   -- Create a new PR
+   -- Review & merge
+
+Step 18 Node execution
+-- Improve props for dialog
+-- Show "execute" button (executeworkflowbutton)
+-- Create "execute" Inngest function
+   {
+      1- Define background job - src/inngest/functions.ts
+      2- Do changes according to job created in inngest route.ts - src/app/api/inngest/route.ts
+      3- Create a protected procedure for that background job -- src/features/workflows/server/routers.ts
+      4- Create a workflow hook to execute that procedure -- src/feature/workflows/hooks/use-workflows.ts
+      5- Now you can use that hook to trigger background job
+   }
+-- Topological sort (toposort -- package installed & npm i --save-dev @types/toposort for types installation) (we need to sort all nodes in workflow in background job to handle branching of http request node to two other http request nodes)
+-- Create executor registry (Used to manage all executors for each node , it might be http executor , manual executor , gemini executor , google form executor)
+(Note: installed ky package for handling http request for node execution and its lightweight similar to axios)
 
 -- Push to Github
    -- Create a new branch
