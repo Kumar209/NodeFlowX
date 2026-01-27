@@ -317,3 +317,49 @@ Step 21 Node realtime (https://www.inngest.com/docs/features/realtime?ref=codewi
    -- Create a new branch
    -- Create a new PR
    -- Review & merge
+
+Step 22 Google Form trigger
+-- Add Google Form trigger node
+   -- node
+   -- dialog
+   -- executor
+   -- realtime channel
+   -- webhook
+
+-- Create a google Form
+   -- create a new "App Script"
+
+-- Installed npm i dotenv-cli -D for using dynamic names value stored in env file to package.json file
+
+-- Push to Github
+   -- Create a new branch
+   -- Create a new PR
+   -- Review & merge
+
+   Goole form trigger creation flow = {
+      1- Created googleformtrigger folder with files action.ts, dialog.tsx, executor.tsx, node.tsx
+      2- Updated the node.tsx file 
+      3- Initialized that node.tsx component to the node-component.tsx component (added new nodetype to enum in schema.prisma and used npx prisma migrate dev and npx prisma generate)
+      4- Add new selector -- google form selector in node-selector.tsx component so that we can se it on sidebar of node selection.
+      5- Created Dialog component
+      6 - Create goolge form trigger channel in inngest/channels folder then we have to register this channel to function - execute workflow
+      7- Create Executor component
+      8- Create action component
+      9- Update the node.tsx for nodestatus
+      10- Create webhook for that I created a new route.ts in src/app/api/webhooks/route.ts
+      11- In http execution node , i created a template-handlebars.ts file to handle helper functions to pass data to http request node
+         (Example - {{googleForm.respondentEmail}}- Respondent's email address
+{{googleForm.responseId}}- Unique response ID
+{{googleForm.responses.email}}- Question named "email"
+{{googleForm.responses.['What is your name?']}}- Question with spaces (bracket notation)
+{{json googleForm.responses}}- All responses as formatted JSON
+{{json googleForm}}- Complete form data as JSON
+{{todo.httpResponse.data.userId}}- Nested data from previous nodes)
+   }
+
+   test-{
+      1- created google form with app scripted pasted and url would https and ngrok url
+      2- Question - url
+      3- Person response of url - ""
+      5- After submit it will trigger form submit node then http node execution
+   }
