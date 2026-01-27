@@ -19,6 +19,7 @@
 
 import { Connection, Node } from "@/generated/prisma/client";
 import toposort from "toposort";
+import { inngest } from "./client";
 
 /**
  * Sorts workflow nodes in topological order based on their connections
@@ -156,3 +157,13 @@ export const topologicalSort = (
  *   Step 3: Execute Node C (Generate Report) ← needs output from B
  *   Step 4: Execute Node D and E in parallel (they have no dependencies)
  */
+
+export const sendWorkflowExecution = async (data: {
+    workflowId: string;
+    [key: string]: any;
+}) => {
+    return inngest.send({
+        name: "workflows/execute.workflow",
+        data,
+    });
+};

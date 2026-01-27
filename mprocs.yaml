@@ -15,3 +15,9 @@ procs:
     cmd: ["cmd", "/c", "npm", "run", "prisma:studio"]
     autostart: true
     autorestart: true
+    cwd: "."
+
+  ngrok:
+    cmd: ["cmd", "/c", "npm", "run", "ngrok:dev"]
+    autostart: true
+    autorestart: true

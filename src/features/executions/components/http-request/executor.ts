@@ -3,13 +3,14 @@ import type { NodeExecutor } from "@/features/executions/types";
 import { NonRetriableError } from "inngest";
 import ky, {type Options as kyOptions} from "ky";
 import { httpRequestChannel } from "@/inngest/channels/http-request";
+import { compileTemplate } from "../../lib/template-handlebars";
 
-Handlebars.registerHelper("json", (context) => {
-    const jsonString = JSON.stringify(context, null, 2);
-    const safeString =  new Handlebars.SafeString(jsonString);
+// Handlebars.registerHelper("json", (context) => {
+//     const jsonString = JSON.stringify(context, null, 2);
+//     const safeString =  new Handlebars.SafeString(jsonString);
 
-    return safeString;
-});
+//     return safeString;
+// });
 
 type HttpRequestData = {
     variableName: string;
@@ -70,15 +71,19 @@ export const httpRequestExecutor: NodeExecutor<HttpRequestData> = async ({
         const result = await step.run("http-request", async () => {
             //https:/..../{{todo.httpResponse.data.userId}}
             //context is previous node data
-            const endpoint = Handlebars.compile(data.endpoint)(context);
+            // const endpoint = Handlebars.compile(data.endpoint)(context);
+            const endpoint = compileTemplate(data.endpoint, context);
+
             const method = data.method;
 
             const options : kyOptions = { method };
 
             if(["POST", "PUT", "PATCH"].includes(method)){
-                const resolved = Handlebars.compile(data.body || "{}")(context);
-                JSON.parse(resolved);
+                // const resolved = Handlebars.compile(data.body || "{}")(context);
+                const bodyTemplate = data.body !== undefined ? data.body : "{}";
+                const resolved = compileTemplate(bodyTemplate, context);
 
+                JSON.parse(resolved);
                 options.body = resolved;
                 options.headers = {
                     "Content-Type" : "application/json",
