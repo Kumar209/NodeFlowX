@@ -403,3 +403,5 @@ Step 24 AI nodes (Using AI sdk which all ready setup completed above steps on pr
    -- Create a new branch
    -- Create a new PR
    -- Review & merge
+
+Note: routers -> functions (function will initialize the context data which may come from previous node and also fetch the executor for that node and also execute it with managing context for each node)
