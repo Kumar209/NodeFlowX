@@ -14,9 +14,9 @@
     "dev:all": "mprocs"
   },
   "dependencies": {
-    "@ai-sdk/anthropic": "^2.0.23",
-    "@ai-sdk/google": "^2.0.17",
-    "@ai-sdk/openai": "^3.0.18",
+    "@ai-sdk/anthropic": "^3.0.28",
+    "@ai-sdk/google": "^3.0.16",
+    "@ai-sdk/openai": "^3.0.21",
     "@hookform/resolvers": "^5.2.2",
     "@inngest/realtime": "^0.4.4",
     "@paralleldrive/cuid2": "^3.3.0",
@@ -57,7 +57,7 @@
     "@trpc/tanstack-react-query": "^11.8.1",
     "@types/pg": "^8.16.0",
     "@xyflow/react": "^12.10.0",
-    "ai": "^5.0.60",
+    "ai": "^6.0.58",
     "better-auth": "^1.4.17",
     "class-variance-authority": "^0.7.1",
     "client-only": "^0.0.1",
