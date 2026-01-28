@@ -392,3 +392,14 @@ Step 23 Strip trigger
       3- Select Destination type as webhook endpoint
       4- Create name , and copy paste the webhook url from our stripe trigger dialog box to endpoint url of destination
    )
+
+Step 24 AI nodes (Using AI sdk which all ready setup completed above steps on project)
+-- Add AI Nodes
+   -- Gemini (Free)  -- (https://aistudio.google.com/u/7/api-keys)
+   -- OpenAI (min. $5)
+   -- Anthropic (min. $5)
+
+-- Push to Github
+   -- Create a new branch
+   -- Create a new PR
+   -- Review & merge
