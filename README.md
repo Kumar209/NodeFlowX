@@ -395,9 +395,22 @@ Step 23 Strip trigger
 
 Step 24 AI nodes (Using AI sdk which all ready setup completed above steps on project)
 -- Add AI Nodes
-   -- Gemini (Free)  -- (https://aistudio.google.com/u/7/api-keys)
+   -- Gemini (Free) (Added Gemini Image generation feature too)  -- (https://aistudio.google.com/u/7/api-keys)
    -- OpenAI (min. $5)
    -- Anthropic (min. $5)
+
+   (Test gemini image generation feature  - 
+      Variable Name: landscapeImage
+      System Prompt: (leave empty)
+      Image Description: A serene mountain landscape at sunrise with a calm lake in the foreground, snow-capped peaks in the distance, morning mist rising from the valley
+
+      Settings:
+      - Number of Images: 1
+      - Image Size: Full HD (1920x1080)
+      - Aspect Ratio: Widescreen (16:9)
+      - Output Format: PNG
+      - Art Style: Photorealistic
+   )
 
 -- Push to Github
    -- Create a new branch
