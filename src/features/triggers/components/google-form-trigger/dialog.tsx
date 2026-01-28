@@ -67,7 +67,7 @@ export const GoogleFormTriggerDialog = ({
                             <Label htmlFor="webhook-url">
                                 Webhook URL
                             </Label>
-                            <div className="flex gap-2">
+                            <div className="flex gap-2 ml-0.5">
                                 <Input id="webhook-url" value={webhookUrl} readOnly className="font-mono text-sm" />
                                 <Button type="button" size="icon" variant="outline" onClick={copyToClipboard} >
                                     <CopyIcon className="size-4" />
@@ -78,7 +78,7 @@ export const GoogleFormTriggerDialog = ({
                         <div className="rounded-lg bg-muted p-4 space-y-2">
                             <h4 className="font-medium text-sm">Setup instructions:</h4>
                             <ol className="text-sm text-muted-foreground-space-y-1 list-decimal list-inside">
-                                <li>Open your Google Form</li>e
+                                <li>Open your Google Form</li>
                                 <li>Click the three dots menu → App Script</li>
                                 <li>Copy and paste the script below</li>
                                 <li>Replace WEBHOOK_URL with your webhook URL above</li>

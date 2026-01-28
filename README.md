@@ -346,6 +346,7 @@ Step 22 Google Form trigger
       7- Create Executor component
       8- Create action component
       9- Update the node.tsx for nodestatus
+      10- Initialize the executor in executor registry component
       10- Create webhook for that I created a new route.ts in src/app/api/webhooks/route.ts
       11- In http execution node , i created a template-handlebars.ts file to handle helper functions to pass data to http request node
          (Example - {{googleForm.respondentEmail}}- Respondent's email address
@@ -363,3 +364,31 @@ Step 22 Google Form trigger
       3- Person response of url - ""
       5- After submit it will trigger form submit node then http node execution
    }
+
+Step 23 Strip trigger
+-- Add Stripe trigger node
+   -- Node
+   -- Dialog
+   -- Executor
+   -- Realtime channel
+   -- Webhook
+
+-- Trigger a stripe event
+
+-- Push to Github
+   -- Create a new branch
+   -- Create a new PR
+   -- Review & merge
+
+   (e
+      Test stripe hit webhook : Go to developer mode in stripe
+      1- stripe login
+      2- stripe listen --forward-to localhost:4242/webhook    // use full webhook url copy it from dialog box in trigger from localhost
+      3- hit stripe trigger form other terminal: stripe trigger payment_intent.succeeded
+
+      Test with live site:
+      1- Create a destination (your account)
+      2- Select your stripe trigger events and continue (example - payment_intent.succeeded)
+      3- Select Destination type as webhook endpoint
+      4- Create name , and copy paste the webhook url from our stripe trigger dialog box to endpoint url of destination
+   )
