@@ -423,3 +423,19 @@ Note: routers -> functions (function will initialize the context data which may 
    -- Create a new branch
    -- Create a new PR
    -- Review & merge
+
+25 Discord & Slack nodes (more can be added later like whatsapp, telegram)
+-- Fix CodeRabbit issues
+   -- Missing channel events
+   -- Invalid node names in logs
+   -- Credentials ID injection
+
+-- Add Discord node (Installed html-entities package to parse and use the raw data with context using handlebars in executor)
+   -- node, dialog, executor, channel
+   -- create Discord webhook
+   -- test Discord node
+
+-- Add Slack node
+   -- node, dialog, executor, channel
+   -- create Discord webhook
+   -- test Slack node
