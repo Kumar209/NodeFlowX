@@ -405,3 +405,21 @@ Step 24 AI nodes (Using AI sdk which all ready setup completed above steps on pr
    -- Review & merge
 
 Note: routers -> functions (function will initialize the context data which may come from previous node and also fetch the executor for that node and also execute it with managing context for each node)
+
+25 Credentials
+-- Add schema
+-- Add router and also initialzed it in _app.ts of trpc
+-- Add hooks (created hook folder containing use-credentials.ts, use-credentials-params.ts and outside folder params.ts)
+-- Add page (Server loader) (worked on src/app/dashboard/credentials/page.tsx and created new params-loader.ts in feature/credential/server and prefetch.ts file in feature/credential/server)
+-- Add client (client hydration) (created credentials.tsx in features/credentials/components and also worked on /src/app/dashboard/credentials/credentialId/page.tsx and also added new/page.tsx for form to create new credentials )
+-- Add entity components
+   -- Pagination
+   -- Search
+   -- ...
+
+-- Add credential dropdown (AI node)
+
+-- Push to Github
+   -- Create a new branch
+   -- Create a new PR
+   -- Review & merge
