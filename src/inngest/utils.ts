@@ -20,6 +20,7 @@
 import { Connection, Node } from "@/generated/prisma/client";
 import toposort from "toposort";
 import { inngest } from "./client";
+import { createId } from "@paralleldrive/cuid2";
 
 /**
  * Sorts workflow nodes in topological order based on their connections
@@ -165,5 +166,6 @@ export const sendWorkflowExecution = async (data: {
     return inngest.send({
         name: "workflows/execute.workflow",
         data,
+        id: createId(), // To always gets an id for inngest
     });
 };

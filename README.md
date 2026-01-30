@@ -424,7 +424,7 @@ Note: routers -> functions (function will initialize the context data which may 
    -- Create a new PR
    -- Review & merge
 
-25 Discord & Slack nodes (more can be added later like whatsapp, telegram)
+26 Discord & Slack nodes (more can be added later like whatsapp, telegram)
 -- Fix CodeRabbit issues
    -- Missing channel events
    -- Invalid node names in logs
@@ -439,3 +439,24 @@ Note: routers -> functions (function will initialize the context data which may 
    -- node, dialog, executor, channel
    -- create Discord webhook
    -- test Slack node
+
+
+
+27 Executions history
+-- Add schema
+-- Add router (created router.ts in executions/server/router.ts and initialized it to _app.ts of trpc and added prefetch with params-loader and also added params.ts outside of server folder)
+-- Add hooks (added use-excutions.ts and use-executions-params)
+-- Add page (server loader) (added page.tsx in src/app/dashboard/rest/executions/page.tsx)
+-- Add client (client hydration) (added added executions.tsx in features/execution/component)
+-- Add entity components
+   -- Pagination
+   -- Loading
+   -- Error
+   -- Empty
+-- Add Execution records in inngest (updated functions.ts - added inngestId(updated in sendWorkflowExecution in src/inngest/utils) , created new step(create-execution , update-execution), added executionView for single execution and updated component ExecutionId/page.tsx)
+
+-- Push to Github
+   -- Create a new branch
+   -- Create a new PR
+   -- Review & merge
+
