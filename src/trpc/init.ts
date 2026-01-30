@@ -18,6 +18,7 @@
  */
 
 import { auth } from '@/lib/auth';
+import prisma from '@/lib/db';
 import { polarClient } from '@/lib/polar';
 import { initTRPC, TRPCError } from '@trpc/server';
 import { headers } from 'next/headers';
@@ -67,13 +68,58 @@ export const premiumProcedure = protectedProcedure.use(
       externalId: ctx.auth.user.id
     });
 
-    if(!customer.activeSubscriptions || customer.activeSubscriptions.length === 0){
+    // Get user email
+    const userEmail = ctx.auth.user.email;
+
+    // Get bypass emails from environment variable
+    const bypassEmails = process.env.PREMIUM_BYPASS_EMAILS?.split(',') || [];
+
+    // Check if user email is in bypass list
+    const isBypassEmail = bypassEmails
+      .map(email => email.trim().toLowerCase())
+      .includes(userEmail.toLowerCase());
+    
+    // If user is in bypass list, allow immediately
+    if (isBypassEmail) {
+      console.log(`Premium bypass granted for:`, JSON.stringify(customer, null, 2));
+      return next({ ctx: { ...ctx, customer } });
+    }
+
+
+
+     // Check if user has active subscription
+    const hasActiveSubscription = customer.activeSubscriptions && customer.activeSubscriptions.length > 0;
+
+    // If user has active subscription, allow unlimited
+    if (hasActiveSubscription) {
+      return next({ ctx: { ...ctx, customer } });
+    }
+
+    // For free tier users, check workflow count
+    const workflowCount = await prisma.workflow.count({
+      where: {
+        userId: ctx.auth.user.id
+      }
+    });
+
+    // Allow free users to create up to 2 workflows
+    if (workflowCount >= 2) {
       throw new TRPCError({
         code: "FORBIDDEN",
-        message: "Active subscription required",
+        message: "Free tier limit reached. Upgrade to premium to create more workflows.",
       });
-      }
+    }
 
-      return next({ ctx : {...ctx, customer }})
+    // Allow free tier user with < 2 workflows to proceed
+    return next({ ctx: { ...ctx, customer } });
+
+    // if(!customer.activeSubscriptions || customer.activeSubscriptions.length === 0){
+    //   throw new TRPCError({
+    //     code: "FORBIDDEN",
+    //     message: "Active subscription required",
+    //   });
+    //   }
+
+    //   return next({ ctx : {...ctx, customer }})
   }
 );
