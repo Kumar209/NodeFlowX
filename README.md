@@ -441,7 +441,6 @@ Note: routers -> functions (function will initialize the context data which may 
    -- test Slack node
 
 
-
 27 Executions history
 -- Add schema
 -- Add router (created router.ts in executions/server/router.ts and initialized it to _app.ts of trpc and added prefetch with params-loader and also added params.ts outside of server folder)
@@ -460,3 +459,12 @@ Note: routers -> functions (function will initialize the context data which may 
    -- Create a new PR
    -- Review & merge
 
+28 Encrypting credentials (Used cryptr package)
+-- Add encryption lib
+-- Encrypt when storing
+-- Decrypt when using
+
+-- Push to Github
+   -- Create a new branch
+   -- Create a new PR
+   -- Review & merge
