@@ -188,7 +188,10 @@
 ### Dashboard & Workflows
 > **Visual workflow editor with drag-and-drop node interface**
 
-![NodeFlowX Dashboard](https://img.shields.io/badge/Preview-Coming%20Soon-blue?style=for-the-badge)
+![Workflow](public/preview/workflow.png)
+![Configuration](public/preview/configuration.png)
+![Credentials](public/preview/credential.png)
+![Executions](public/preview/executions.png)
 
 ---
 
