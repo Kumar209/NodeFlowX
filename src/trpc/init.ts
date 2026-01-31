@@ -81,7 +81,6 @@ export const premiumProcedure = protectedProcedure.use(
     
     // If user is in bypass list, allow immediately
     if (isBypassEmail) {
-      console.log(`Premium bypass granted for:`, JSON.stringify(customer, null, 2));
       return next({ ctx: { ...ctx, customer } });
     }
 
