@@ -103,6 +103,7 @@ enum CredentialType {
   OPENAI
   ANTHROPIC
   GEMINI
+  TELEGRAM
 }
 
 model Workflow{
@@ -130,6 +131,8 @@ enum NodeType {
   OPENAI
   DISCORD
   SLACK
+  TELEGRAM_TRIGGER
+  TELEGRAM_ACTION
 }
 
 model Node{

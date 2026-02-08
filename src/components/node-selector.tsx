@@ -34,6 +34,12 @@ const triggerNodes: NodeTypeOption[] = [
         label: "Stripe Event",
         description : "Runs the flow when a stripe event is captured",
         icon: "/stripe.svg"
+    },
+    {
+        type: NodeType.TELEGRAM_TRIGGER,
+        label: "Telegram Message",
+        description: "Runs the flow when a Telegram message is received",
+        icon: "/telegram.svg"
     }
 ];
 
@@ -73,6 +79,12 @@ const executionNodes: NodeTypeOption[] = [
         label: "Slack",
         description : "Send a message to Slack",
         icon: "/slack.svg"
+    },
+    {
+        type: NodeType.TELEGRAM_ACTION,
+        label: "Telegram",
+        description: "Send a message via Telegram",
+        icon: "/telegram.svg"
     }
 ];
 

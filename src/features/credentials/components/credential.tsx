@@ -59,6 +59,11 @@ const credentialTypeOptions = [
         value: CredentialType.ANTHROPIC,
         label: "Anthropic",
         logo: "/anthropic.svg",
+    },
+    {
+        value: CredentialType.TELEGRAM,
+        label: "Telegram",
+        logo: "/telegram.svg",
     }
 ];
 

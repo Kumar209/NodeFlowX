@@ -9,6 +9,8 @@ import { openAiExecutor } from "../components/openai/executor";
 import { anthropicExecutor } from "../components/anthropic/executor";
 import { discordExecutor } from "../components/discord/executor";
 import { slackExecutor } from "../components/slack/executor";
+import { telegramTriggerExecutor } from "@/features/triggers/components/telegram-trigger/executor";
+import { telegramExecutor } from "../components/telegram/executor";
 
 export const exectorRegistry: Record<NodeType, NodeExecutor> = {
     [NodeType.INITIAL] : manualTriggerExecutor,
@@ -20,7 +22,9 @@ export const exectorRegistry: Record<NodeType, NodeExecutor> = {
     [NodeType.ANTHROPIC]: anthropicExecutor,
     [NodeType.OPENAI]: openAiExecutor,
     [NodeType.DISCORD]: discordExecutor,
-    [NodeType.SLACK] : slackExecutor
+    [NodeType.SLACK] : slackExecutor,
+    [NodeType.TELEGRAM_TRIGGER]: telegramTriggerExecutor,
+    [NodeType.TELEGRAM_ACTION]: telegramExecutor
 };
 
 export const getExecutor = (type: NodeType) : NodeExecutor => {
