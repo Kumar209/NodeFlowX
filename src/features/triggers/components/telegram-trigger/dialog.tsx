@@ -109,6 +109,10 @@ export const TelegramTriggerDialog = ({
                                     </span>
 
                                     <ul className="list-disc list-inside ml-4 mt-1 space-y-1">
+                                         <li>
+                                            Save your workflow first. Ownership binding
+                                            only works after the workflow is saved.
+                                        </li>
                                         <li>
                                             The first Telegram account that sends a message
                                             to this bot will become the owner.

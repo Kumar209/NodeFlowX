@@ -132,6 +132,10 @@ export const TelegramDialog = ({
                                         <FormDescription className="ml-0.5">
                                             Use this name to reference the result in other nodes: {" "}
                                             <code>{`{{${watchVariableName}.result}}`}</code>
+                                              <br />
+                                                Do not use <strong>"telegram"</strong> as the variable name. 
+                                                It is reserved for Telegram Trigger data and may cause data loss.
+                                              <br />
                                         </FormDescription>
                                         <FormMessage />
                                     </FormItem>
@@ -150,7 +154,7 @@ export const TelegramDialog = ({
                                             disabled={isLoadingCredentials || !credentials?.length}
                                         >
                                             <FormControl>
-                                                <SelectTrigger>
+                                                <SelectTrigger className="w-full">
                                                     <SelectValue placeholder="Select a credential" />
                                                 </SelectTrigger>
                                             </FormControl>
